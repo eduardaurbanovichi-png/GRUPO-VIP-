@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIP Black 2026 — Apresentação Estratégica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg-primary: #FDFBF8;
+  --bg-secondary: #F4EFEB;
+  --text-dark: #2C2621;
+  --text-muted: #6B5E53;
+  --gold-primary: #B38E5D;
+  --gold-light: #D9C3A3;
+  --gold-dark: #8C6A3E;
+  --accent-dark: #1F1B17;
+  --white: #FFFFFF;
+  
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
+  
+  --shadow-soft: 0 12px 40px rgba(44, 38, 33, 0.05);
+  --shadow-gold: 0 10px 30px rgba(179, 142, 93, 0.15);
+  --radius-lg: 20px;
+  --radius-sm: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.container { width: min(1100px, 90%); margin: auto; }
+section { padding: 100px 0; }
+
+/* TYPOGRAPHY */
+h1, h2, h3, .serif { font-family: var(--font-serif); font-weight: 500; }
+h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1rem; color: var(--text-dark); }
+h3 { font-size: 1.5rem; color: var(--text-dark); }
+p { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; }
+
+.gold-text { color: var(--gold-primary); }
+.kicker { 
+  font-size: 0.75rem; 
+  text-transform: uppercase; 
+  letter-spacing: 0.2em; 
+  color: var(--gold-primary); 
+  font-weight: 600; 
+  margin-bottom: 1rem; 
+  display: block;
+}
+
+/* NAVBAR & MOBILE MENU */
+header {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(253, 251, 248, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(179, 142, 93, 0.15);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600; letter-spacing: 0.05em; color: var(--text-dark); text-decoration: none; z-index: 101; position: relative; }
+.logo span { color: var(--gold-primary); font-style: italic; }
+
+.desktop-nav { display: flex; gap: 2rem; align-items: center; }
+.desktop-nav a { text-decoration: none; color: var(--text-dark); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.3s; }
+.desktop-nav a:hover { color: var(--gold-primary); }
+
+.menu-toggle { display: none; background: none; border: none; width: 30px; height: 20px; position: relative; cursor: pointer; z-index: 101; }
+.menu-toggle span { display: block; position: absolute; height: 2px; width: 100%; background: var(--text-dark); transition: 0.3s ease; }
+.menu-toggle span:nth-child(1) { top: 0; }
+.menu-toggle span:nth-child(2) { top: 9px; }
+.menu-toggle span:nth-child(3) { top: 18px; }
+.menu-toggle.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed; inset: 0; background: var(--bg-primary);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  gap: 2rem; z-index: 100; opacity: 0; pointer-events: none; transition: 0.4s ease;
+}
+.mobile-menu.active { opacity: 1; pointer-events: auto; }
+.mobile-menu a {
+  font-family: var(--font-serif); font-size: 2rem; color: var(--text-dark); text-decoration: none;
+  transform: translateY(20px); opacity: 0; transition: 0.4s ease;
+}
+.mobile-menu.active a { transform: translateY(0); opacity: 1; }
+.mobile-menu a:nth-child(1) { transition-delay: 0.1s; }
+.mobile-menu a:nth-child(2) { transition-delay: 0.2s; }
+.mobile-menu a:nth-child(3) { transition-delay: 0.3s; }
+.mobile-menu a:nth-child(4) { transition-delay: 0.4s; }
+
+/* 1. HERO SECTION */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 80px;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+.hero-bg {
+  position: absolute;
+  top: 0; right: 0; width: 60%; height: 100%;
+  background-image: url('image_2.png');
+  background-size: cover;
+  background-position: center 20%;
+  z-index: 0;
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--bg-primary) 0%, rgba(253,251,248,0.7) 50%, transparent 100%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 600px; }
+.hero h1 { font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1.05; margin-bottom: 1.5rem; }
+.hero p { font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 450px; }
+.btn {
+  display: inline-block; padding: 1rem 2.5rem;
+  background: var(--gold-primary); color: var(--white);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  font-size: 0.8rem; font-weight: 500; text-decoration: none;
+  border-radius: 30px; transition: all 0.3s ease;
+  box-shadow: var(--shadow-gold); text-align: center;
+}
+.btn:hover { background: var(--text-dark); transform: translateY(-3px); }
+
+/* 2. A IDEIA (Fluxo Visual) */
+.flow-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+.flow-card {
+  background: var(--white); padding: 3rem 2rem;
+  border-radius: var(--radius-lg); text-align: center;
+  box-shadow: var(--shadow-soft); position: relative;
+}
+.flow-card::after {
+  content: '→'; position: absolute; right: -1.5rem; top: 50%; transform: translateY(-50%);
+  font-size: 1.5rem; color: var(--gold-light); z-index: 2;
+}
+.flow-card:last-child::after { display: none; }
+.flow-icon {
+  width: 60px; height: 60px; margin: 0 auto 1.5rem;
+  background: var(--bg-secondary); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-size: 1.5rem; color: var(--gold-primary);
+}
+
+/* 3. COMO VAI FUNCIONAR (Timeline) */
+.bg-dark { background: var(--accent-dark); color: var(--white); }
+.bg-dark h2, .bg-dark h3 { color: var(--white); }
+.bg-dark p { color: #A89F96; }
+
+.timeline { margin-top: 4rem; position: relative; }
+.timeline::before {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 1px; background: rgba(217, 195, 163, 0.2);
+}
+.tl-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; position: relative;}
+.tl-item:nth-child(even) { flex-direction: row-reverse; }
+.tl-content { width: 45%; background: rgba(255,255,255,0.03); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid rgba(217,195,163,0.1); }
+.tl-point {
+  width: 50px; height: 50px; background: var(--gold-primary); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; position: absolute; left: 50%; transform: translateX(-50%);
+  color: var(--accent-dark); font-weight: 600; z-index: 2; font-family: var(--font-serif); font-size: 1.2rem;
+}
+
+/* MOCKUPS / WHATSAPP UI */
+.mockup-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.phone-mockup {
+  background: #EFEAE2; border-radius: 40px; padding: 1.5rem 1rem;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.08); border: 8px solid var(--white);
+  position: relative; max-width: 350px; margin: auto; width: 100%;
+}
+.chat-header {
+  background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 20px;
+  text-align: center; font-family: var(--font-serif); color: var(--text-dark);
+  margin-bottom: 1.5rem; font-size: 0.9rem; font-weight: 600;
+}
+.bubble {
+  background: var(--white); padding: 1rem; border-radius: 15px 15px 15px 0;
+  margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-dark);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+.bubble.gold { background: var(--gold-primary); color: var(--white); border-radius: 15px 15px 0 15px; margin-left: 2rem; }
+.poll-ui { background: var(--white); padding: 1rem; border-radius: 15px; margin-bottom: 1rem; }
+.poll-opt { display: flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 0.85rem; }
+.poll-bar { height: 6px; background: var(--bg-secondary); flex-grow: 1; border-radius: 3px; overflow: hidden; }
+.poll-fill { height: 100%; background: var(--gold-primary); }
+
+.promo-card-mockup {
+  background: url('image.png') center/cover;
+  height: 200px; border-radius: 12px; margin-bottom: 10px;
+  position: relative; display: flex; align-items: flex-end; padding: 1rem;
+}
+.promo-card-mockup::before {
+  content: ''; position: absolute; inset: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); border-radius: 12px;
+}
+.promo-text { position: relative; z-index: 1; color: var(--white); }
+.promo-text h4 { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 0; }
+.promo-text span { font-size: 0.75rem; color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px; }
+
+/* METRICS */
+.metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.metric-card {
+  text-align: center; padding: 3rem 1.5rem; border-radius: var(--radius-lg);
+  border: 1px solid var(--gold-light); background: var(--white);
+}
+.metric-val { font-family: var(--font-serif); font-size: 3rem; color: var(--gold-primary); line-height: 1; margin-bottom: 0.5rem; }
+
+/* =========================================
+   MOBILE RESPONSIVENESS (IMPACT & UX FOCUS)
+========================================= */
+@media (max-width: 900px) {
+  section { padding: 70px 0; }
+  h1 { font-size: 2.8rem; }
+  h2 { font-size: 2rem; }
+  
+  /* Header & Nav */
+  .desktop-nav { display: none; }
+  .menu-toggle { display: block; }
+  
+  /* Hero Mobile Redesign */
+  .hero { align-items: flex-end; padding-bottom: 4rem; padding-top: 0; text-align: center; }
+  .hero-bg {
+    width: 100%; height: 60%; top: 0; left: 0; right: 0;
+    background-position: center 10%;
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  }
+  .hero-bg::after { display: none; }
+  .hero-content { margin-top: 55vh; max-width: 100%; display: flex; flex-direction: column; align-items: center; }
+  .hero p { margin-bottom: 2rem; }
+  .btn { width: 100%; max-width: 300px; padding: 1.2rem; }
+
+  /* Flow Grid */
+  .flow-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .flow-card { padding: 2rem; }
+  .flow-card::after {
+    content: '↓'; right: auto; left: 50%; top: auto; bottom: -1.5rem;
+    transform: translateX(-50%); font-size: 1.5rem;
+  }
+
+  /* Timeline Mobile */
+  .timeline::before { left: 24px; }
+  .tl-item, .tl-item:nth-child(even) { flex-direction: column; align-items: flex-start; margin-bottom: 2.5rem; padding-left: 65px; }
+  .tl-point { position: absolute; left: 0; top: 0; transform: none; width: 48px; height: 48px; }
+  .tl-content { width: 100%; padding: 1.8rem; }
+
+  /* Mockups */
+  .mockup-section { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+  .mockup-section > div:not(.phone-mockup) { order: 1; }
+  .phone-mockup { order: 2; margin: 0 auto; }
+
+  /* Metrics */
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .metric-card { padding: 2rem 1rem; }
+  .metric-val { font-size: 2.2rem; }
+}
+
+@media (max-width: 480px) {
+  .metrics-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.4rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-container">
+    <a href="#" class="logo">Dra. Elis <span>VIP</span></a>
+    
+    <div class="desktop-nav">
+      <a href="#estrategia">A Estratégia</a>
+      <a href="#jornada">Calendário</a>
+      <a href="#interacao">Interação</a>
+      <a href="#black" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.75rem; color: white;">Ver Black</a>
+    </div>
+
+    <button class="menu-toggle" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu">
+  <a href="#estrategia" onclick="toggleMenu()">A Estratégia</a>
+  <a href="#jornada" onclick="toggleMenu()">Calendário</a>
+  <a href="#interacao" onclick="toggleMenu()">Interação</a>
+  <a href="#black" onclick="toggleMenu()" class="gold-text">A Grande Black</a>
+</nav>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="kicker">Planejamento Estratégico</span>
+      <h1>VIP Black<br><span class="gold-text">2026</span></h1>
+      <p>Uma experiência de luxo. Sem excessos, sem panfletagem digital. Apenas exclusividade e desejo construídos semana a semana até a Black Friday.</p>
+      <a href="#estrategia" class="btn">Visualizar Campanha</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2. A IDEIA -->
+<section id="estrategia" class="container">
+  <div style="text-align: center; max-width: 600px; margin: auto;">
+    <span class="kicker">A Lógica Visual</span>
+    <h2>Menos barulho,<br>mais desejo.</h2>
+  </div>
+  
+  <div class="flow-grid">
+    <div class="flow-card">
+      <div class="flow-icon">01</div>
+      <h3>Enquete Exclusiva</h3>
+      <p>A cliente escolhe o procedimento da semana.</p>
+    </div>
+    <div class="flow-card">
+      <div class="flow-icon">02</div>
+      <h3>Condição Premium</h3>
+      <p>Acesso antecipado a 10% OFF no procedimento eleito.</p>
+    </div>
+    <div class="flow-card">
+      <div class="flow-icon">03</div>
+      <h3>A Grande Black</h3>
+      <p>O ápice da campanha em Novembro, exclusivo para o VIP.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. TIMELINE -->
+<section id="jornada" class="bg-dark">
+  <div class="container">
+    <div style="text-align: center;">
+      <span class="kicker">O Calendário</span>
+      <h2>A Jornada até Novembro</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-content">
+          <span class="kicker">Setembro</span>
+          <h3>O Despertar</h3>
+          <p>Reativação do grupo com enquetes de interesse. "Qual procedimento você mais deseja?"</p>
+        </div>
+        <div class="tl-point">1</div>
+        <div style="width: 45%;" class="desktop-spacer"></div>
+      </div>
+      <div class="tl-item">
+        <div style="width: 45%;" class="desktop-spacer"></div>
+        <div class="tl-point">2</div>
+        <div class="tl-content">
+          <span class="kicker">Outubro</span>
+          <h3>O Hábito</h3>
+          <p>Liberação semanal de condições (10% OFF). Elas participam, votam e aproveitam antes do público geral.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-content">
+          <span class="kicker">Novembro</span>
+          <h3>A Antecipação</h3>
+          <p>Teasers da Black Friday. A contagem regressiva começa com gatilhos de curiosidade.</p>
+        </div>
+        <div class="tl-point">3</div>
+        <div style="width: 45%;" class="desktop-spacer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 & 5. MOCKUPS (ENQUETE & CAMPANHA) -->
+<section id="interacao" class="container mockup-section">
+  <div>
+    <span class="kicker">Interação</span>
+    <h2>O Poder da Escolha</h2>
+    <p>O grupo VIP não é um mural de promoções, é um espaço de escuta. Através de enquetes, validamos o desejo e entregamos exatamente o que a cliente quer comprar.</p>
+  </div>
+  
+  <div class="phone-mockup">
+    <div class="chat-header">Grupo VIP Dra. Elis</div>
+    
+    <div class="bubble">
+      Meninas, preparando a condição especial desta semana. Qual procedimento vocês preferem? ✨
+    </div>
+    
+    <div class="poll-ui">
+      <strong>Votação da Semana</strong>
+      <div class="poll-opt">
+        <input type="radio" checked> Botox
+      </div>
+      <div class="poll-bar"><div class="poll-fill" style="width: 65%;"></div></div>
+      
+      <div class="poll-opt">
+        <input type="radio"> Preenchimento Labial
+      </div>
+      <div class="poll-bar"><div class="poll-fill" style="width: 25%;"></div></div>
+      
+      <div class="poll-opt">
+        <input type="radio"> Bioestimulador
+      </div>
+      <div class="poll-bar"><div class="poll-fill" style="width: 10%;"></div></div>
+    </div>
+    
+    <div class="bubble gold" style="margin-top: 1.5rem;">
+      Eu quero Botox! 😍
+    </div>
+  </div>
+</section>
+
+<section class="container mockup-section" style="padding-top: 0;">
+  <div>
+    <span class="kicker">Conversão</span>
+    <h2>A Oferta Premium</h2>
+    <p>Comunicação sofisticada. Usamos a estética editorial das redes sociais adaptada para o formato do WhatsApp, mantendo o requinte da clínica intacto sem parecer um folheto promocional.</p>
+  </div>
+
+  <div class="phone-mockup">
+    <div class="chat-header">Grupo VIP Dra. Elis</div>
+    
+    <div class="promo-card-mockup">
+      <div class="promo-text">
+        <span>VIP da Semana</span>
+        <h4>Botox Preventivo</h4>
+      </div>
+    </div>
+    
+    <div class="bubble">
+      Vocês escolheram! 🥂<br><br>Até domingo, <strong>10% OFF</strong> exclusivo para quem está aqui no grupo. Agendamentos no privado.
+    </div>
+  </div>
+</section>
+
+<!-- 6 & 7. BLACK FRIDAY -->
+<section id="black" class="bg-dark" style="text-align: center;">
+  <div class="container" style="max-width: 800px;">
+    <span class="kicker">O Grande Evento</span>
+    <h2 style="font-size: clamp(3rem, 5vw, 4.5rem); color: var(--gold-light);">27.11.2026</h2>
+    <p style="font-size: 1.1rem; margin: 2rem 0;">A revelação final. Após semanas de aquecimento, a oferta da Black Friday é liberada. Um pacote exclusivo, combo premium ou benefício intangível que transcende um simples desconto.</p>
+    
+    <div style="background: rgba(255,255,255,0.05); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid rgba(217,195,163,0.2);">
+      <h3 style="color: var(--white); font-family: var(--font-serif); font-size: 2rem;">"A espera acabou."</h3>
+      <p style="margin-top: 1rem; color: var(--gold-light);">Card de revelação enviado às 09:00h para o VIP. Abertura para o público externo apenas 24h depois.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8. RESULTADOS ESPERADOS -->
+<section class="container">
+  <div style="text-align: center; margin-bottom: 4rem;">
+    <span class="kicker">Projeção</span>
+    <h2>O Impacto do VIP Black</h2>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-val">+Engajamento</div>
+      <p>Retenção ativa no WhatsApp</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">10%</div>
+      <p>Benefício fixo semanal sustentável</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">100%</div>
+      <p>Percepção de exclusividade</p>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">ROI</div>
+      <p>Agendamentos previsíveis e contínuos</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    
+    if(mobileMenu.classList.contains('active')) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }
+</script>
+
+</body>
+</html>
